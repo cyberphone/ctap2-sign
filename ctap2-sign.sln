@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ctap2-sign", "ctap2-sign.vcxproj", "{D3495104-3841-4802-BC84-32070E94C869}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CEF76759-7960-40DA-81AA-0EFD9B1F330F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3495104-3841-4802-BC84-32070E94C869}.Debug|x64.ActiveCfg = Debug|x64
+		{D3495104-3841-4802-BC84-32070E94C869}.Debug|x64.Build.0 = Debug|x64
+		{D3495104-3841-4802-BC84-32070E94C869}.Debug|x86.ActiveCfg = Debug|Win32
+		{D3495104-3841-4802-BC84-32070E94C869}.Debug|x86.Build.0 = Debug|Win32
+		{D3495104-3841-4802-BC84-32070E94C869}.Release|x64.ActiveCfg = Release|x64
+		{D3495104-3841-4802-BC84-32070E94C869}.Release|x64.Build.0 = Release|x64
+		{D3495104-3841-4802-BC84-32070E94C869}.Release|x86.ActiveCfg = Release|Win32
+		{D3495104-3841-4802-BC84-32070E94C869}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {717DACA5-71FE-4A37-87B8-FB6FD40EDCA4}
+	EndGlobalSection
+EndGlobal
