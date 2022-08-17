@@ -3,8 +3,19 @@
 Small Windows WebAuthn command-line program which signs arbitrary clientData 
 using FIDO/CTAP2.
 
+## Usage
+```
+ctap2-sign data2sign domain credentialid
+```
+`data2sign` holds arbitrary data encoded in Base64Url.<br>
+`domain` holds an issuer domain like `test.webpki.org`.<br>
+`credentialid` holds the requested credentialId encoded in Base64Url.
+
+The command returns Base64Url encoded values of `signature` and `authenticatorData`.
+
+## FIDO Web Pay
 Applied to https://fido-web-pay.github.io/specification/ FIDO/CTAP2
-signatures enables payment authorizations like:
+signatures enables CBOR encoded payment authorizations like:
 
 ```code
 {
@@ -46,3 +57,4 @@ signatures enables payment authorizations like:
   }
 }
 ```
+That is, `clientDataJSON` and associated JSON parsing is _eliminated_.
