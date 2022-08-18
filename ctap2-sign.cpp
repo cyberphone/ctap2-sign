@@ -93,18 +93,12 @@ void decodeBase64Url(LPCWSTR base64UrlString, PDWORD outDataLength, PBYTE outDat
     }
 }
 
-void doFidoSign(DWORD clientDataLength,
-                PBYTE clientData,
+void doFidoSign(WEBAUTHN_CLIENT_DATA clientData,
                 LPCWSTR pwszRpId, 
                 WEBAUTHN_CREDENTIALS credentials) {
     HWND hWnd = GetConsoleHwnd();
     wprintf(L"WebAuthn API Version: %u\n", WebAuthNGetApiVersionNumber());
-    WEBAUTHN_CLIENT_DATA webAuthnClientData { 
-        WEBAUTHN_CLIENT_DATA_CURRENT_VERSION,
-        clientDataLength,
-        clientData,
-        WEBAUTHN_HASH_ALGORITHM_SHA_256
-    };
+
     WEBAUTHN_EXTENSIONS extensions {
         // None
     };
@@ -119,7 +113,7 @@ void doFidoSign(DWORD clientDataLength,
     PWEBAUTHN_ASSERTION pWebAssertion;
     HRESULT hresult = WebAuthNAuthenticatorGetAssertion(hWnd,
                                                         pwszRpId,
-                                                        &webAuthnClientData,
+                                                        &clientData,
                                                         &assertionOptions,
                                                         &pWebAssertion);
     if (hresult != S_OK) {
@@ -138,9 +132,19 @@ int wmain(int argc, TCHAR **argv) {
         wprintf(L"ctap2-sign data2SignB64U issuerDomain credentialIdB64U\n");
         exit(3);
     }
+
+    // Get the data to sign
     BYTE data2Sign[1000];
     DWORD data2SignLength;
     decodeBase64Url(argv[1], &data2SignLength, data2Sign);
+    WEBAUTHN_CLIENT_DATA clientData {
+        WEBAUTHN_CLIENT_DATA_CURRENT_VERSION,
+        data2SignLength,
+        data2Sign,
+        WEBAUTHN_HASH_ALGORITHM_SHA_256
+    };
+
+    // Get the credential
     BYTE credentialId[1000];
     DWORD credentialIdLength;
     decodeBase64Url(argv[3], &credentialIdLength, credentialId);
@@ -154,5 +158,6 @@ int wmain(int argc, TCHAR **argv) {
         1,
         &credential
     };
-    doFidoSign(data2SignLength, data2Sign, argv[2], credentials);
+
+    doFidoSign(clientData, argv[2], credentials);
 }
