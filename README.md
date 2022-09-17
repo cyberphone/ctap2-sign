@@ -1,6 +1,6 @@
 # ctap2-sign
 
-Small Windows WebAuthn command-line program which signs arbitrary clientData 
+Small Windows command-line program which signs arbitrary clientData 
 using FIDO/CTAP2.
 
 ## Usage
@@ -58,7 +58,7 @@ signatures enables CBOR encoded payment authorizations like:
   }
 }
 ```
-That is, `clientDataJSON` and associated JSON parsing is _eliminated_.
+That is, the WebAuthn `clientDataJSON` element and associated JSON parsing is _eliminated_.
 
 Although the solution above uses an *enveloped* signature scheme that depends on the
 *deterministic mode* of CBOR, nothing prevents you from modifying JOSE
