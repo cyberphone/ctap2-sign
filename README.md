@@ -58,3 +58,7 @@ signatures enables CBOR encoded payment authorizations like:
 }
 ```
 That is, `clientDataJSON` and associated JSON parsing is _eliminated_.
+
+Although the solution above uses an *enveloped* signature scheme that depends on the
+*deterministic mode* of CBOR, nothing prevents you from modifying JOSE
+and COSE libraries, to cope with `authenticatorData`.
