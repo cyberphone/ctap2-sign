@@ -62,4 +62,5 @@ That is, the WebAuthn `clientDataJSON` element and associated JSON parsing is _e
 
 Although the solution above uses an *enveloped* signature scheme that depends on the
 *deterministic mode* of CBOR, nothing prevents you from modifying JOSE
-and COSE libraries, to cope with `authenticatorData`.
+and COSE libraries, to cope with `authenticatorData` the explicit hashing
+of `clientData`, and the differing ECDSA signature format.
